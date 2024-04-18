@@ -135,7 +135,7 @@ let startMouvingY
 
 function touchStartHandler(event){
   startMouvingX=event.touches[event.touches.length-1].screenX;
-  startMouvingY=event.touches[event.touches.length-1].screeny;
+  startMouvingY=event.touches[event.touches.length-1].screenY;
 
 }
 function handleCancel(event){
