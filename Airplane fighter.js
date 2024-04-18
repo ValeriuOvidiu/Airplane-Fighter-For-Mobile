@@ -135,6 +135,8 @@ function handleCancel(event){
   window.cancelAnimationFrame(animationId)
 }
 function touchMouveHandler(event){
+  flyingPlane.x=event.offsetX+(flyingPlane.x-event.offsetX)
+  flyingPlane.y=event.offsetY+(flyingPlane.y-event.offsetY)
   screenToucht=true
   if (!drawAnimationStarted){
     animationId = window.requestAnimationFrame(draw);
@@ -195,6 +197,7 @@ function draw(currentTime) {
     const distance = speedOfPlane * elapsedTime / 100;
     flyingPlane.x += distance;
   }
+  
   if (leftPressed && flyingPlane.x > 0) {
     if (!lastTime) {
       lastTime = currentTime;
