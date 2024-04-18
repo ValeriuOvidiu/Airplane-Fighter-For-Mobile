@@ -126,9 +126,17 @@ let leftPressed = false;
 function addEvent(canvas) {
   document.addEventListener("keydown", keyDownHandler)
   document.addEventListener("keyup", keyUpHandler);
-  canvas.addEventListener("touchstart", touchMouveHandler);
+  canvas.addEventListener("touchstart", touchStartHandler);
   canvas.addEventListener("touchmove",touchMouveHandler)
   canvas.addEventListener("touchcancel", handleCancel);
+}
+let startMouvingX
+let startMouvingY
+
+function touchStartHandler(event){
+  startMouvingX=event.touches[event.touches.length-1].screenX;
+  startMouvingY=event.touches[event.touches.length-1].screeny;
+
 }
 function handleCancel(event){
   lastTime = null
@@ -137,8 +145,8 @@ screenToucht=false
 function touchMouveHandler(event){
   const touches = event.changedTouches;
   let point=touches[touches.length-1]
-  let xPosition=flyingPlane.x+(flyingPlane.x-point.screenX)
-  let yPosition=flyingPlane.y+(flyingPlane.y-point.screenY)
+  let xPosition=flyingPlane.x-(startMouvingX-point.screenX)
+  let yPosition=flyingPlane.y-(startMouvingY-point.screenY)
  if(xPosition>canvasWidth){
   flyingPlane.x=canvasWidth
  }else if(xPosition<0 ){
@@ -155,7 +163,8 @@ function touchMouveHandler(event){
  }
  document.getElementById('d').innerText+=flyingPlane.y+"   "+flyingPlane.x +"  "+point.screenX+"  "+ point+ "  "+xPosition+ "\n";
   screenToucht=true
-  
+  startMouvingX=point.screenX
+  startMouvingY=point.screenY
 }
 let screenToucht=false
 let animationId
