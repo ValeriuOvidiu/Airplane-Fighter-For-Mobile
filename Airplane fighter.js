@@ -126,6 +126,7 @@ let leftPressed = false;
 function addEvent(canvas) {
   document.addEventListener("keydown", keyDownHandler)
   document.addEventListener("keyup", keyUpHandler);
+  canvas.addEventListener("touchstart", touchMouveHandler);
   canvas.addEventListener("touchmove",touchMouveHandler)
   canvas.addEventListener("touchcancel", handleCancel);
 }
@@ -135,8 +136,22 @@ function handleCancel(event){
   window.cancelAnimationFrame(animationId)
 }
 function touchMouveHandler(event){
-  flyingPlane.x=event.offsetX+(flyingPlane.x-event.offsetX)
-  flyingPlane.y=event.offsetY+(flyingPlane.y-event.offsetY)
+  let xPosition=event.offsetX+(flyingPlane.x-event.offsetX)
+  let yPosition=event.offsetY+(flyingPlane.y-event.offsetY)
+ if(xPosition>canvasWidth){
+  flyingPlane.x=canvasWidth
+ }else if(xPosition<0 ){
+  flyingPlane.x=0
+ }else {
+  flyingPlane.x=xPosition
+ }
+ if(yPosition>canvasHeight){
+  flyingPlane.y=canvasHeight
+ }else if (yPosition<0){
+  flyingPlane.y=0
+ }else {
+  flyingPlane.y=yPosition
+ }
   screenToucht=true
   if (!drawAnimationStarted){
     animationId = window.requestAnimationFrame(draw);
