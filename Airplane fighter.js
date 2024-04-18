@@ -135,8 +135,10 @@ function handleCancel(event){
 screenToucht=false
 }
 function touchMouveHandler(event){
-  let xPosition=event.offsetX+(flyingPlane.x-event.offsetX)
-  let yPosition=event.offsetY+(flyingPlane.y-event.offsetY)
+  const touches = event.changedTouches;
+  let point=touches[touches.length-1]
+  let xPosition=point.screenX+(flyingPlane.x-point.screenX)
+  let yPosition=point.screenY+(flyingPlane.y-point.screenY)
  if(xPosition>canvasWidth){
   flyingPlane.x=canvasWidth
  }else if(xPosition<0 ){
@@ -151,7 +153,7 @@ function touchMouveHandler(event){
  }else {
   flyingPlane.y=yPosition
  }
- document.getElementById('d').innerText+=flyingPlane.y+"   "+flyingPlane.x +"\n";
+ document.getElementById('d').innerText+=flyingPlane.y+"   "+flyingPlane.x +"  "+"\n";
   screenToucht=true
   
 }
