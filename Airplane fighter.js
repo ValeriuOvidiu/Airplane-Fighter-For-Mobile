@@ -178,6 +178,9 @@ if(indication=="left"){
 if(indication=="right"){
   rightPressed = true;
 }
+if (indication=="shoot" && !bulletsIntervalId) {
+  bulletsIntervalId = setInterval(moreBullets, 100)
+}
 }
 function released(indication){
   if(indication=="left"){
@@ -185,6 +188,10 @@ function released(indication){
   }
   if(indication=="right"){
     rightPressed = false;
+  }
+  if (indication=="shoot") {
+    clearInterval(bulletsIntervalId)
+    bulletsIntervalId = null
   }
 }
 function keyDownHandler(event) {

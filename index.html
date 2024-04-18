@@ -1,27 +1,59 @@
 <html lang="en-US">
-  <head>
-    <meta name="viewport" content="width=device-width">
-    <meta charset="utf-8" />
-    <title>Airplane fighter</title>
-    <script src="Airplane fighter.js"> </script>
-    <style>
-      canvas {
-        border: 1px solid black;
-        background-color: rgb(16, 160, 232);
 
+<head>
+  <meta name="viewport" content="width=device-width">
+  <meta charset="utf-8" />
+  <title>Airplane fighter</title>
+  <script src="Airplane fighter.js"> </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+  <style>
+    canvas {
+      border: 1px solid black;
+      background-color: rgb(16, 160, 232);
+
+    }
+
+    .button {
+        width: 100px; /* Lățimea butonului */
+        height: 60px; /* Înălțimea butonului */
+        background-color: blue; /* Culoarea de fundal a butonului */
+        color: white; /* Culoarea textului butonului */
+        font-size: 18px; /* Dimensiunea textului butonului */
+        border: none; /* Elimină bordura butonului */
+        cursor: pointer; /* Indicator de cursor de tip pointer */
+        position: absolute; /* Poziționare absolută pentru a controla exact poziția pe ecran */
+        bottom: -25px; /* Poziția butoanelor la distanță de 10px de partea de jos a containerului */
       }
-    
-    
 
+      .button.left {
+        left: 10px; /* Poziția butonului stâng */
+      }
 
-    </style>
-   
-  </head>
-  <body >
+      .button.right {
+        left: 100px; /* Poziția butonului drept */
+      }
+      .button.shoot {
+        right: 10%; /* Poziția butonului shoot */
+        transform: translateX(-50%); /* Centrare orizontală */
+      }
 
-    <canvas  id="canvas" width="700" height="700"></canvas>
-    <p></p>
-<button  onmousedown="pressed('left')" onmouseup="released('left')" ontouchstart="pressed('left')" ontouchend="released('left')"> <</button>
-<button  onmousedown="pressed('right')" onmouseup="released('right')" ontouchstart="pressed('right')" ontouchend="released('right')">  ></button>
-  </body>
+    /* Green */
+  </style>
+
+</head>
+
+<body>
+
+  <canvas id="canvas" width="700" height="700"></canvas>
+  <p></p>
+  <button class="button left" onmousedown="pressed('left')" onmouseup="released('left')" ontouchstart="pressed('left')"ontouchend="released('left')"> < </button>
+   <button class="button right" onmousedown="pressed('right')" onmouseup="released('right')" ontouchstart="pressed('right')"ontouchend="released('right')"> > </button>
+   <button class="button shoot" onmousedown="pressed('shoot')" onmouseup="released('shoot')" ontouchstart="pressed('shoot')"ontouchend="released('shoot')" >Shoot</button>
+</body>
+
 </html>
