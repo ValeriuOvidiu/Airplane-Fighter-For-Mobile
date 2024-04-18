@@ -425,6 +425,8 @@ function restart(event) {
     timeMemory = null
     flyingPlane.color = "white"
     newObstacolInterval = setInterval(newObstacol, 300)
+    clearInterval(bulletsIntervalId)
+    bulletsIntervalId = null
     reload()
   }
 }
