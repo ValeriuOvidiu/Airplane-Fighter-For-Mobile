@@ -390,7 +390,7 @@ const scoreRectWidth = 300
 const scoreRectHeight = 100
 const restartRectX = 280
 const restartRectY = 410
-const restartRectWidth = 150
+const restartRectWidth = 190
 const restartRectHeight = 50
 
 function gameOver(ctx, canvas) {
