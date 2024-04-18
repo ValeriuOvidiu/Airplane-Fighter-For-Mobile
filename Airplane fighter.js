@@ -153,7 +153,7 @@ function touchMouveHandler(event){
  }else {
   flyingPlane.y=yPosition
  }
- document.getElementById('d').innerText+=flyingPlane.y+"   "+flyingPlane.x +"  "+"\n";
+ document.getElementById('d').innerText+=flyingPlane.y+"   "+flyingPlane.x +"  "+point.screenX+"  "+ point+ "  "+xPosition+ "\n";
   screenToucht=true
   
 }
