@@ -137,8 +137,8 @@ screenToucht=false
 function touchMouveHandler(event){
   const touches = event.changedTouches;
   let point=touches[touches.length-1]
-  let xPosition=point.screenX+(flyingPlane.x-point.screenX)
-  let yPosition=point.screenY+(flyingPlane.y-point.screenY)
+  let xPosition=flyingPlane.x+(flyingPlane.x-point.screenX)
+  let yPosition=flyingPlane.y+(flyingPlane.y-point.screenY)
  if(xPosition>canvasWidth){
   flyingPlane.x=canvasWidth
  }else if(xPosition<0 ){
