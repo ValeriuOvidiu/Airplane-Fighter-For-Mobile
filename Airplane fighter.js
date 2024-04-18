@@ -132,8 +132,7 @@ function addEvent(canvas) {
 }
 function handleCancel(event){
   lastTime = null
-  drawAnimationStarted=false
-  window.cancelAnimationFrame(animationId)
+screenToucht=false
 }
 function touchMouveHandler(event){
   let xPosition=event.offsetX+(flyingPlane.x-event.offsetX)
@@ -152,11 +151,9 @@ function touchMouveHandler(event){
  }else {
   flyingPlane.y=yPosition
  }
+ document.getElementById('d').innerText+=flyingPlane.y+"   "+flyingPlane.x +"\n";
   screenToucht=true
-  if (!drawAnimationStarted){
-    animationId = window.requestAnimationFrame(draw);
-    drawAnimationStarted=true
-  }
+  
 }
 let screenToucht=false
 let animationId
@@ -175,10 +172,7 @@ function keyDownHandler(event) {
   if (event.keyCode === space && !bulletsIntervalId) {
     bulletsIntervalId = setInterval(moreBullets, 100)
   }
-  if (!drawAnimationStarted){
-    animationId = window.requestAnimationFrame(draw);
-    drawAnimationStarted=true
-  }
+ 
   
 }
 
