@@ -8,22 +8,20 @@
       canvas {
         border: 1px solid black;
         background-color: rgb(16, 160, 232);
-        max-width: 100%; /* Canvas-ul va avea o lățime maximă de 100% */
-        height: auto; /* Înălțimea se va ajusta automat */
-      }
 
-      @media only screen and (max-width: 600px) {
-        canvas {
-          max-width: 100%; /* Canvas-ul va avea o lățime maximă de 100% pe ecranele mai mici de 600px */
-        }
       }
+    
+    
+
+
     </style>
    
   </head>
   <body >
+
     <canvas  id="canvas" width="700" height="700"></canvas>
     <p></p>
-    <div id="d"></div>
-
+<button  onmousedown="pressed('left')" onmouseup="released('left')" ontouchstart="pressed('left')" ontouchend="released('left')"> <</button>
+<button  onmousedown="pressed('right')" onmouseup="onButtonUp()" ontouchstart="pressed('right')" ontouchend="released('right')">  ></button>
   </body>
 </html>

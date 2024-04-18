@@ -171,7 +171,22 @@ const arrowLeft = 37
 const arrowRight = 39
 let space = 32
 let drawAnimationStarted=false
-
+function pressed(indication){
+if(indication=="left"){
+  leftPressed = true;
+}
+if(indication=="right"){
+  rightPressed = true;
+}
+}
+function released(indication){
+  if(indication=="left"){
+    leftPressed = false;
+  }
+  if(indication=="right"){
+    rightPressed = false;
+  }
+}
 function keyDownHandler(event) {
   if (event.keyCode === arrowRight) {
     rightPressed = true;
