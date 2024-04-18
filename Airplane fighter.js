@@ -109,7 +109,6 @@ function start(event) {
   const ctx = canvas.getContext("2d")
   if (event.offsetX > startRectX && event.offsetX < startRectX + startRectWidth && event.offsetY > startRectY && event.offsetY < startRectY + startRectHeight) {
     canvas.removeEventListener("click", start)
-    //canvas.removeEventListener("touchstart",start)
     flyingPlane.draw(ctx)
     window.requestAnimationFrame(drawObstacles)
     addEvent(canvas)
@@ -126,46 +125,11 @@ let leftPressed = false;
 function addEvent(canvas) {
   document.addEventListener("keydown", keyDownHandler)
   document.addEventListener("keyup", keyUpHandler);
-  canvas.addEventListener("touchstart", touchStartHandler);
-  canvas.addEventListener("touchmove",touchMouveHandler)
-  canvas.addEventListener("touchcancel", handleCancel);
+  
 }
-let startMouvingX
-let startMouvingY
 
-function touchStartHandler(event){
-  startMouvingX=event.touches[event.touches.length-1].screenX;
-  startMouvingY=event.touches[event.touches.length-1].screenY;
 
-}
-function handleCancel(event){
-  lastTime = null
-screenToucht=false
-}
-function touchMouveHandler(event){
-  const touches = event.changedTouches;
-  let point=touches[touches.length-1]
-  let xPosition=flyingPlane.x-(startMouvingX-point.screenX)
-  let yPosition=flyingPlane.y-(startMouvingY-point.screenY)
- if(xPosition>canvasWidth){
-  flyingPlane.x=canvasWidth
- }else if(xPosition<0 ){
-  flyingPlane.x=0
- }else {
-  flyingPlane.x=xPosition
- }
- if(yPosition>canvasHeight){
-  flyingPlane.y=canvasHeight
- }else if (yPosition<0){
-  flyingPlane.y=0
- }else {
-  flyingPlane.y=yPosition
- }
-  screenToucht=true
-  startMouvingX=point.screenX
-  startMouvingY=point.screenY
-}
-let screenToucht=false
+
 let animationId
 const arrowLeft = 37
 const arrowRight = 39

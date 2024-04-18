@@ -19,29 +19,32 @@
     }
 
     .button {
-        width: 100px; /* Lățimea butonului */
-        height: 60px; /* Înălțimea butonului */
-        background-color: blue; /* Culoarea de fundal a butonului */
-        color: white; /* Culoarea textului butonului */
-        font-size: 18px; /* Dimensiunea textului butonului */
-        border: none; /* Elimină bordura butonului */
-        cursor: pointer; /* Indicator de cursor de tip pointer */
-        position: absolute; /* Poziționare absolută pentru a controla exact poziția pe ecran */
-        bottom: -25px; /* Poziția butoanelor la distanță de 10px de partea de jos a containerului */
+        width: 150px; 
+        height: 150px; 
+        background-color: blue; 
+        color: white; 
+        border: none; 
+        cursor: pointer; 
+        position: absolute;
+
       }
 
       .button.left {
-        left: 10px; /* Poziția butonului stâng */
+        left: 10px; 
+        font-size: 78px;
       }
 
       .button.right {
-        left: 100px; /* Poziția butonului drept */
+        left: 200px; 
+        font-size: 78px;
       }
       .button.shoot {
-        right: 10%; /* Poziția butonului shoot */
-        transform: translateX(-50%); /* Centrare orizontală */
+        right: 10px; 
+        font-size: 48px;
+        background-color: rgb(237, 14, 14); 
+        transform: translateX(-50%); 
+        border-radius: 50%; 
       }
-
     /* Green */
   </style>
 
@@ -50,7 +53,7 @@
 <body>
 
   <canvas id="canvas" width="700" height="700"></canvas>
-  <p></p>
+  <div style="height: 10px;"></div>
   <button class="button left" onmousedown="pressed('left')" onmouseup="released('left')" ontouchstart="pressed('left')"ontouchend="released('left')"> < </button>
    <button class="button right" onmousedown="pressed('right')" onmouseup="released('right')" ontouchstart="pressed('right')"ontouchend="released('right')"> > </button>
    <button class="button shoot" onmousedown="pressed('shoot')" onmouseup="released('shoot')" ontouchstart="pressed('shoot')"ontouchend="released('shoot')" >Shoot</button>
